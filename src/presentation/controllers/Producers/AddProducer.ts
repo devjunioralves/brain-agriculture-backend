@@ -1,11 +1,8 @@
-import { type IAddProducer } from '@/domain/usecases/IAddProducer'
-import { MissingParamError } from '@/presentation/errors/MissingParamError'
-import { badRequest, ok, serverError } from '@/presentation/helpers/HttpHelper'
-import { type IController } from '@/presentation/protocols/IController'
-import {
-  type IHttpResponse,
-  type IHttpRequest,
-} from '@/presentation/protocols/IHttp'
+import { type IAddProducer } from '../../../domain/usecases/IAddProducer'
+import { MissingParamError } from '../../errors/MissingParamError'
+import { badRequest, ok, serverError } from '../../helpers/HttpHelper'
+import { type IController } from '../../protocols/IController'
+import { type IHttpRequest, type IHttpResponse } from '../../protocols/IHttp'
 
 export class AddProducerController implements IController {
   constructor(private readonly addProducer: IAddProducer) {

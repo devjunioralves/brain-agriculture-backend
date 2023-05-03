@@ -10,6 +10,6 @@ export default (router: Router): void => {
   router.post('/producer', adaptRoute(makeAddProducerController()))
   router.delete('/producer/:id', adaptRoute(makeDeleteProducerController()))
   router.get('/producer/:id', adaptRoute(makeListOneProducerController()))
-  router.get('/producer/:id', adaptRoute(makeListProducerController()))
+  router.get('/producer', adaptRoute(makeListProducerController()))
   router.patch('/producer/:id', adaptRoute(makeUpdateProducerController()))
 }

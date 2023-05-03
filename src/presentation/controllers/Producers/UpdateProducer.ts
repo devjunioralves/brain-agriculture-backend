@@ -1,8 +1,8 @@
 import { type IController } from '../../protocols/IController'
 import { type IHttpRequest, type IHttpResponse } from '../../protocols/IHttp'
 import { badRequest, ok, serverError } from '../../helpers/HttpHelper'
-import { type IUpdateProducer } from '@/domain/usecases/IUpdateProducer'
-import { MissingParamError } from '@/presentation/errors/MissingParamError'
+import { type IUpdateProducer } from '../../../domain/usecases/IUpdateProducer'
+import { MissingParamError } from '../../errors/MissingParamError'
 
 export class UpdateProducerController implements IController {
   constructor(private readonly updateProducer: IUpdateProducer) {

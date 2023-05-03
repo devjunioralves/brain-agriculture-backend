@@ -1,7 +1,7 @@
-import { type IListProducer } from '@/domain/usecases/IListProducer'
 import { type IController } from '../../protocols/IController'
 import { type IHttpResponse } from '../../protocols/IHttp'
 import { ok, serverError } from '../../helpers/HttpHelper'
+import { type IListProducer } from '../../../domain/usecases/IListProducer'
 
 export class ListProducerController implements IController {
   constructor(private readonly listProducer: IListProducer) {

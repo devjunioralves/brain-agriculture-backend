@@ -1,8 +1,8 @@
 import { type IController } from '../../protocols/IController'
 import { type IHttpRequest, type IHttpResponse } from '../../protocols/IHttp'
 import { badRequest, ok, serverError } from '../../helpers/HttpHelper'
-import { type IListOneProducer } from '@/domain/usecases/IListOneProducer'
-import { MissingParamError } from '@/presentation/errors/MissingParamError'
+import { type IListOneProducer } from '../../../domain/usecases/IListOneProducer'
+import { MissingParamError } from '../../errors/MissingParamError'
 
 export class ListOneProducerController implements IController {
   constructor(private readonly listOneProducer: IListOneProducer) {

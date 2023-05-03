@@ -1,11 +1,8 @@
-import { type IDeleteProducer } from '@/domain/usecases/IDeleteProducer'
-import { MissingParamError } from '@/presentation/errors/MissingParamError'
-import { badRequest, ok, serverError } from '@/presentation/helpers/HttpHelper'
-import { type IController } from '@/presentation/protocols/IController'
-import {
-  type IHttpRequest,
-  type IHttpResponse,
-} from '@/presentation/protocols/IHttp'
+import { type IDeleteProducer } from '../../../domain/usecases/IDeleteProducer'
+import { MissingParamError } from '../../errors/MissingParamError'
+import { badRequest, ok, serverError } from '../../helpers/HttpHelper'
+import { type IController } from '../../protocols/IController'
+import { type IHttpRequest, type IHttpResponse } from '../../protocols/IHttp'
 
 export class DeleteProducerController implements IController {
   constructor(private readonly deleteProducer: IDeleteProducer) {

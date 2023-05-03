@@ -8,6 +8,20 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "sourceMap": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "baseUrl": "src",
+    "rootDir": "src",
+    "paths": {
+      "@/*": ["*"],
+      "@controllers/*": ["./src/presentation/controllers"],
+      "@middlewares/*": ["./src/presentation/middlewares"],
+      "@protocols/*": ["./src/presentation/protocols"],
+      "@routes/*": ["./src/presentation/routes"],
+      "@usecases/*": ["./src/domain/usecases"],
+      "@models/*": ["./src/domain/models"],
+      "@repositories/*": ["./src/infra/Db/SQLite"],
+      "@db/*": ["./src/infra/Db"],
+      "@main/*": ["./src/main"]
+    }
   }
 }
