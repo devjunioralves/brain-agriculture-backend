@@ -1,9 +1,9 @@
-import { type IAddProducerRepository } from '@/data/protocols/IAddProducerRepository'
-import { type IProducer } from '@/domain/models/IProducer'
+import { type IProducer } from '../../../domain/models/IProducer'
 import {
-  type IAddProducer,
   type IProducerModel,
-} from '@/domain/usecases/IAddProducer'
+  type IAddProducer,
+} from '../../../domain/usecases/IAddProducer'
+import { type IAddProducerRepository } from '../../protocols/IAddProducerRepository'
 
 export class AddProducer implements IAddProducer {
   constructor(private readonly addProducerRepository: IAddProducerRepository) {

@@ -1,6 +1,6 @@
-import { type IListProducerRepository } from '@/data/protocols/IListProducerRepository'
-import { type IProducer } from '@/domain/models/IProducer'
-import { type IListProducer } from '@/domain/usecases/IListProducer'
+import { type IProducer } from '../../../domain/models/IProducer'
+import { type IListProducer } from '../../../domain/usecases/IListProducer'
+import { type IListProducerRepository } from '../../protocols/IListProducerRepository'
 
 export class ListProducer implements IListProducer {
   constructor(

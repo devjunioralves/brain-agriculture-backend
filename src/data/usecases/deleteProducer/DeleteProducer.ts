@@ -1,6 +1,6 @@
-import { type IDeleteProducerRepository } from '@/data/protocols/IDeleteProducerRepository'
-import { type IProducer } from '@/domain/models/IProducer'
-import { type IDeleteProducer } from '@/domain/usecases/IDeleteProducer'
+import { type IProducer } from '../../../domain/models/IProducer'
+import { type IDeleteProducer } from '../../../domain/usecases/IDeleteProducer'
+import { type IDeleteProducerRepository } from '../../protocols/IDeleteProducerRepository'
 
 export class DeleteProducer implements IDeleteProducer {
   constructor(

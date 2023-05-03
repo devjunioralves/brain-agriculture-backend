@@ -1,6 +1,6 @@
-import { type IUpdateProducerRepository } from '@/data/protocols/IUpdateProducerRepository'
-import { type IProducer } from '@/domain/models/IProducer'
-import { type IUpdateProducer } from '@/domain/usecases/IUpdateProducer'
+import { type IProducer } from '../../../domain/models/IProducer'
+import { type IUpdateProducer } from '../../../domain/usecases/IUpdateProducer'
+import { type IUpdateProducerRepository } from '../../protocols/IUpdateProducerRepository'
 
 export class UpdateProducer implements IUpdateProducer {
   constructor(
