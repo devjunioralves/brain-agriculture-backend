@@ -7,6 +7,8 @@ import { type IListTotalArableAreaRepository } from '@/data/protocols/IListTotal
 import { type IListTotalAreaRepository } from '@/data/protocols/IListTotalArea'
 import { type IListTotalByUsedAreaRepository } from '@/data/protocols/IListTotalByUsedArea'
 import { type ITotalByArea } from '@/domain/models/ITotalByArea'
+import { type ITotalByCrops } from '@/domain/models/ITotalByCrops'
+import { type IListTotalByCropsRepository } from '@/data/protocols/IListTotalByCropsRepository'
 
 export class ReportsRepository
   implements
@@ -14,7 +16,8 @@ export class ReportsRepository
     IListTotalFarmsByStateRepository,
     IListTotalArableAreaRepository,
     IListTotalAreaRepository,
-    IListTotalByUsedAreaRepository
+    IListTotalByUsedAreaRepository,
+    IListTotalByCropsRepository
 {
   async listTotalFarmsByState(): Promise<IFarmsByState[]> {
     const producerRepository = AppDataSource.getRepository(Producer)
@@ -60,6 +63,37 @@ export class ReportsRepository
       {
         name: 'Área de Vegetação',
         value: totalByUsedArea[0].vegetation_area,
+      },
+    ]
+  }
+
+  async listTotalByCrops(): Promise<ITotalByCrops[]> {
+    const producerRepository = AppDataSource.getRepository(Producer)
+
+    const totalByCrops = await producerRepository.query(
+      "SELECT SUM(CASE WHEN string_to_array(crops, ',') @> ARRAY['Soja'] THEN 1 ELSE 0 END) AS soja, SUM(CASE WHEN string_to_array(crops, ',') @> ARRAY['Algodao'] THEN 1 ELSE 0 END) AS algodao, SUM(CASE WHEN string_to_array(crops, ',') @> ARRAY['Milho'] THEN 1 ELSE 0 END) AS milho, SUM(CASE WHEN string_to_array(crops, ',') @> ARRAY['Cafe'] THEN 1 ELSE 0 END) AS cafe, SUM(CASE WHEN string_to_array(crops, ',') @> ARRAY['Cana'] THEN 1 ELSE 0 END) AS cana FROM producer"
+    )
+
+    return [
+      {
+        name: 'Soja',
+        value: totalByCrops[0].soja,
+      },
+      {
+        name: 'Algodao',
+        value: totalByCrops[0].algodao,
+      },
+      {
+        name: 'Milho',
+        value: totalByCrops[0].milho,
+      },
+      {
+        name: 'Café',
+        value: totalByCrops[0].cafe,
+      },
+      {
+        name: 'Cana',
+        value: totalByCrops[0].cana,
       },
     ]
   }

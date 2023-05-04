@@ -20,6 +20,7 @@ export class AddProducerController implements IController {
         'total_area',
         'arable_area',
         'vegetation_area',
+        'crops',
       ]
 
       for (const field of requiredFields) {
@@ -37,6 +38,7 @@ export class AddProducerController implements IController {
         total_area: httpRequest.body.total_area,
         arable_area: httpRequest.body.arable_area,
         vegetation_area: httpRequest.body.vegetation_area,
+        crops: httpRequest.body.crops,
       })
       return ok(producers)
     } catch (error) {

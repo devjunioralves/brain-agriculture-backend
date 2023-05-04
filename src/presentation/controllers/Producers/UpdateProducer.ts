@@ -39,6 +39,7 @@ export class UpdateProducerController implements IController {
         total_area: httpRequest.body.total_area,
         arable_area: httpRequest.body.arable_area,
         vegetation_area: httpRequest.body.vegetation_area,
+        crops: httpRequest.body.crops,
       })
       return ok(producer)
     } catch (error) {

@@ -32,6 +32,7 @@ export class ProducerRepository
       total_area: saved.total_area,
       arable_area: saved.arable_area,
       vegetation_area: saved.vegetation_area,
+      crops: saved.crops,
     }
   }
 
@@ -84,6 +85,7 @@ export class ProducerRepository
       producer.total_area = data.total_area
       producer.arable_area = data.arable_area
       producer.vegetation_area = data.vegetation_area
+      producer.crops = data.crops
       await producerRepository.save(producer)
       return producer
     }

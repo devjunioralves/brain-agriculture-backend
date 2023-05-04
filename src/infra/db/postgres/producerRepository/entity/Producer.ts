@@ -28,4 +28,7 @@ export class Producer {
 
   @Column()
   vegetation_area: number
+
+  @Column()
+  crops: string
 }
