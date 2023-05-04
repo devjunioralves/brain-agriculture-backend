@@ -4,12 +4,14 @@ import { Producer } from '../producerRepository/entity/Producer'
 import { type IListTotalFarmsByStateRepository } from '@/data/protocols/IListTotalFarmsByStateRepository'
 import { type IFarmsByState } from '@/domain/models/IFarmsByState'
 import { type IListTotalArableAreaRepository } from '@/data/protocols/IListTotalArableArea'
+import { type IListTotalAreaRepository } from '@/data/protocols/IListTotalArea'
 
 export class ReportsRepository
   implements
     IListTotalFarmsRepository,
     IListTotalFarmsByStateRepository,
-    IListTotalArableAreaRepository
+    IListTotalArableAreaRepository,
+    IListTotalAreaRepository
 {
   async listTotalFarmsByState(): Promise<IFarmsByState[]> {
     const producerRepository = AppDataSource.getRepository(Producer)
@@ -31,5 +33,13 @@ export class ReportsRepository
       'SELECT SUM(arable_area) FROM producer'
     )
     return totalArableArea
+  }
+
+  async listTotalArea(): Promise<number> {
+    const producerRepository = AppDataSource.getRepository(Producer)
+    const totalArea = await producerRepository.query(
+      'SELECT SUM(total_area) FROM producer'
+    )
+    return totalArea
   }
 }
